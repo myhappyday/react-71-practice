@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import { BsAlarm } from 'react-icons/bs';
 import { AiOutlinePieChart } from 'react-icons/ai';
 import { HiOutlineChartBar } from 'react-icons/hi';
-import { Image, Container } from './Recipe.styled';
 
 export const Recipe = ({ item: { name, image, time, servings, calories } }) => {
   return (
-    <Container>
-      <Image src={image} alt={name} />
+    <section>
+      <img src={image} alt={name} width="240" />
       <h2>{name}</h2>
       <div>
         <div>
@@ -31,7 +30,7 @@ export const Recipe = ({ item: { name, image, time, servings, calories } }) => {
           <span>Hard</span>
         </div>
       </div>
-    </Container>
+    </section>
   );
 };
 
