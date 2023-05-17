@@ -12,7 +12,7 @@ import {
   Badge,
 } from './Recipe.styled';
 
-export const Recipe = ({ item: { name, image, time, servings, calories } }) => {
+export const Recipe = ({ item: { name, image, time, servings, calories, difficulty } }) => {
   return (
     <Container>
       <Image src={image} alt={name} />
@@ -34,9 +34,9 @@ export const Recipe = ({ item: { name, image, time, servings, calories } }) => {
       <RecipeDifficulty>
         <h3>Difficulty</h3>
         <BadgeList>
-          <Badge>Easy</Badge>
-          <Badge>Medium</Badge>
-          <Badge>Hard</Badge>
+          <Badge isActive={difficulty==="easy"} value={difficulty}>Easy</Badge>
+          <Badge isActive={difficulty==="medium"} value={difficulty}>Medium</Badge>
+          <Badge isActive={difficulty==="hard"} value={difficulty}>Hard</Badge>
         </BadgeList>
       </RecipeDifficulty>
     </Container>
