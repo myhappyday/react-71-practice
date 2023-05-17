@@ -2,35 +2,44 @@ import PropTypes from 'prop-types';
 import { BsAlarm } from 'react-icons/bs';
 import { AiOutlinePieChart } from 'react-icons/ai';
 import { HiOutlineChartBar } from 'react-icons/hi';
+import {
+  Container,
+  Image,
+  RecipeInfo,
+  InfoItem,
+  RecipeDifficulty,
+  BadgeList,
+  Badge,
+} from './Recipe.styled';
 
 export const Recipe = ({ item: { name, image, time, servings, calories } }) => {
   return (
-    <section>
-      <img src={image} alt={name} width="240" />
+    <Container>
+      <Image src={image} alt={name} />
       <h2>{name}</h2>
-      <div>
-        <div>
+      <RecipeInfo>
+        <InfoItem>
           <BsAlarm />
           {time} min
-        </div>
-        <div>
+        </InfoItem>
+        <InfoItem>
           <AiOutlinePieChart />
           {servings} servings
-        </div>
-        <div>
+        </InfoItem>
+        <InfoItem>
           <HiOutlineChartBar />
           {calories} calories
-        </div>
-      </div>
-      <div>
+        </InfoItem>
+      </RecipeInfo>
+      <RecipeDifficulty>
         <h3>Difficulty</h3>
-        <div>
-          <span>Easy</span>
-          <span>Medium</span>
-          <span>Hard</span>
-        </div>
-      </div>
-    </section>
+        <BadgeList>
+          <Badge>Easy</Badge>
+          <Badge>Medium</Badge>
+          <Badge>Hard</Badge>
+        </BadgeList>
+      </RecipeDifficulty>
+    </Container>
   );
 };
 
@@ -42,6 +51,6 @@ Recipe.protoTypes = {
     servings: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
-    difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']).isRequired,
+    // difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']).isRequired,
   }).isRequired,
 };
